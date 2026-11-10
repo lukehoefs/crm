@@ -11,6 +11,7 @@ export const TASK_KINDS = [
 	"slack-people-match",
 	"slack-channel-join",
 	"agent-event",
+	"mcp-tool-discovery",
 ] as const;
 
 export type TaskKind = (typeof TASK_KINDS)[number];
@@ -21,6 +22,7 @@ export const DIRECT_KINDS = [
 	"slack-people-match",
 	"slack-channel-join",
 	"agent-event",
+	"mcp-tool-discovery",
 ] as const;
 
 export type DirectKind = (typeof DIRECT_KINDS)[number];
@@ -29,20 +31,16 @@ export function isDirectKind(kind: string): kind is DirectKind {
 	return (DIRECT_KINDS as readonly string[]).includes(kind);
 }
 
-export const ENRICHMENT_KINDS = [
-	"brand",
-	"portrait",
-	"identify",
-	"profile",
-	"recheck",
-	"company-profile",
-	"workspace-profile",
-] as const;
+export const CONTACT_STATUS_KINDS = ["identify", "profile", "recheck"] as const;
 
-export type EnrichmentKind = (typeof ENRICHMENT_KINDS)[number];
+export const COMPANY_STATUS_KINDS = ["brand"] as const;
 
-export function isEnrichmentKind(kind: string): kind is EnrichmentKind {
-	return (ENRICHMENT_KINDS as readonly string[]).includes(kind);
+export function ownsContactStatus(kind: string): boolean {
+	return (CONTACT_STATUS_KINDS as readonly string[]).includes(kind);
+}
+
+export function ownsCompanyStatus(kind: string): boolean {
+	return (COMPANY_STATUS_KINDS as readonly string[]).includes(kind);
 }
 
 export const MAX_ATTEMPTS = 3;
@@ -63,4 +61,5 @@ export const PRIORITY = {
 	slackPeople: 150,
 	slackJoin: 950,
 	event: 700,
+	mcpDiscovery: 20,
 } as const;

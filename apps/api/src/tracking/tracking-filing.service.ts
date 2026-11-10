@@ -1,4 +1,4 @@
-import { workspaceDomains } from "@crm/auth";
+import { workspaceDomains } from "@crm/auth/workspace";
 import { ActivityType, type Db, Prisma, RecordSource } from "@crm/db";
 import type { Touch } from "@crm/db/attribution";
 import {
@@ -86,8 +86,8 @@ export class TrackingFilingService {
 		const suppressed = await this.suppressed(email, domain);
 		if (suppressed) return this.skip(submission.id, suppressed);
 
-		const existing = await this.db.contact.findUnique({
-			where: { email },
+		const existing = await this.db.contact.findFirst({
+			where: { email, archivedAt: null },
 			select: { id: true },
 		});
 
@@ -156,8 +156,8 @@ export class TrackingFilingService {
 			return null;
 		}
 
-		return this.db.contact.findUnique({
-			where: { email },
+		return this.db.contact.findFirst({
+			where: { email, archivedAt: null },
 			select: { id: true },
 		});
 	}

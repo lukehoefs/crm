@@ -1,5 +1,51 @@
 # Changelog
 
+## [1.16.0](https://github.com/trycompai/crm/compare/v1.15.3...v1.16.0) (2026-10-22)
+
+
+### Features
+
+* add reviewed MCP integrations ([#245](https://github.com/trycompai/crm/issues/245)) ([ce278b0](https://github.com/trycompai/crm/commit/ce278b08a145394c8d6af0af910ba0edfd35fc44))
+
+
+### Fixes
+
+* update vulnerable dependencies and checks ([#243](https://github.com/trycompai/crm/issues/243)) ([09df0ed](https://github.com/trycompai/crm/commit/09df0ed5ea1bf8e14df4cb7a0416d8c4a87a9336))
+
+
+### Documentation
+
+* remove median task workflow and document branching from main ([#196](https://github.com/trycompai/crm/issues/196)) ([f655085](https://github.com/trycompai/crm/commit/f6550854d6311487d670d6ee1708f6e3ce7d6884))
+
+## [1.15.3](https://github.com/trycompai/crm/compare/v1.15.2...v1.15.3) (2026-08-21)
+
+
+### Fixes
+
+* **app:** prevent url param collision between fields sheet and table filter ([#175](https://github.com/trycompai/crm/issues/175)) ([1cebe1e](https://github.com/trycompai/crm/commit/1cebe1e5b3087007c4eac8b18add38ff9e8dd69b))
+* stop a finished enrichment reading as failed ([#173](https://github.com/trycompai/crm/issues/173)) ([2946580](https://github.com/trycompai/crm/commit/2946580afdd43419ce08165a0d55ba9d084c554e))
+
+## [1.15.2](https://github.com/trycompai/crm/compare/v1.15.1...v1.15.2) (2026-08-20)
+
+
+### Documentation
+
+* **api:** explain runtime openapi document and vendoring rules ([#170](https://github.com/trycompai/crm/issues/170)) ([630f2c9](https://github.com/trycompai/crm/commit/630f2c9f375b5ae084ed708d21bcdb563c774a4f))
+
+## [1.15.1](https://github.com/trycompai/crm/compare/v1.15.0...v1.15.1) (2026-08-20)
+
+
+### Fixes
+
+* **api:** serve openapi.json and bundle swagger deps in function build ([#166](https://github.com/trycompai/crm/issues/166)) ([7ea4f37](https://github.com/trycompai/crm/commit/7ea4f37cd65e93d62d3977e08a0df476b3aa4479))
+
+## [1.15.0](https://github.com/trycompai/crm/compare/v1.14.0...v1.15.0) (2026-08-20)
+
+
+### Features
+
+* **agent:** scope field backfill tasks to records missing values ([#163](https://github.com/trycompai/crm/issues/163)) ([3be7bbd](https://github.com/trycompai/crm/commit/3be7bbd69fe8b814ee2599a29b33e73f02a66245))
+
 ## [1.14.0](https://github.com/trycompai/crm/compare/v1.13.0...v1.14.0) (2026-08-18)
 
 

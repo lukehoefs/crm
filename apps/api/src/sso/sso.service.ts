@@ -1,14 +1,12 @@
+import { auth } from "@crm/auth/auth";
+import { isGoogleConfigured, isMicrosoftConfigured } from "@crm/auth/env";
+import { WORKSPACE_ID, workspaceRoleOf } from "@crm/auth/organization";
 import {
-	auth,
 	canConfigureSso,
-	isGoogleConfigured,
-	isMicrosoftConfigured,
 	ssoCallbackBase,
 	ssoCallbackURL,
 	ssoProviderName,
-	WORKSPACE_ID,
-	workspaceRoleOf,
-} from "@crm/auth";
+} from "@crm/auth/sso";
 import type { Db, Prisma } from "@crm/db";
 import {
 	BadRequestException,
@@ -30,34 +28,11 @@ import {
 import type {
 	DeleteSsoProviderInput,
 	RegisterSsoProviderInput,
+	SignInOptions,
+	SsoProvider,
 	SsoProviderListInput,
+	SsoSettings,
 } from "./sso.contracts";
-
-export interface PublicSsoProvider {
-	providerId: string;
-	name: string;
-}
-
-export interface SignInOptions {
-	google: boolean;
-	microsoft: boolean;
-	providers: PublicSsoProvider[];
-}
-
-export interface SsoProvider {
-	providerId: string;
-	name: string;
-	type: "oidc" | "saml";
-	issuer: string;
-	domains: string[];
-	clientIdLastFour: string | null;
-	callbackURL: string;
-}
-
-export interface SsoSettings {
-	canConfigure: boolean;
-	callbackBase: string;
-}
 
 const PROVIDER_SELECT = {
 	providerId: true,
