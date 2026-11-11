@@ -52,6 +52,7 @@ import {
 	type DetailSheetTab,
 } from "@/components/detail-sheet";
 import { LocalDateTime, LocalRelativeDate } from "@/components/local-date-time";
+import { gmailComposeUrl } from "@/lib/compose-email";
 import { factsByField } from "@/lib/contact-facts";
 import { ENRICHMENT_POLL_MS, isEnriching } from "@/lib/enrichment-status";
 import { savingField } from "@/lib/pending-field";
@@ -182,7 +183,11 @@ export function ContactSheet({ contactId }: { contactId: string }) {
 						<ContactEnrichmentAction contactId={contact.id} />
 						{contact.email ? (
 							<Button asChild variant="outline" size="sm">
-								<a href={`mailto:${contact.email}`}>
+								<a
+									href={gmailComposeUrl(contact.email)}
+									target="_blank"
+									rel="noreferrer noopener"
+								>
 									<Icon icon={Email} data-icon="inline-start" />
 									<span className="hidden sm:inline">Email</span>
 								</a>
@@ -226,7 +231,9 @@ export function ContactSheet({ contactId }: { contactId: string }) {
 						<DetailSheetStat label="Email">
 							{contact.email ? (
 								<a
-									href={`mailto:${contact.email}`}
+									href={gmailComposeUrl(contact.email)}
+									target="_blank"
+									rel="noreferrer noopener"
 									className="underline-offset-2 hover:underline"
 								>
 									{contact.email}
