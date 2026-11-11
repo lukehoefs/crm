@@ -1,6 +1,5 @@
 import {
 	columnFor,
-	type FieldValueColumn,
 	FieldValueError,
 	type FieldValueJson,
 	type FieldValueWrite,
@@ -39,6 +38,7 @@ export type SerializedField = {
 	required: boolean;
 	showOnSheet: boolean;
 	showOnTable: boolean;
+	showOnFilter: boolean;
 	position: number;
 	archived: boolean;
 	options: SerializedFieldOption[];
@@ -59,6 +59,7 @@ export function serializeField(
 		required: definition.required,
 		showOnSheet: definition.showOnSheet,
 		showOnTable: definition.showOnTable,
+		showOnFilter: definition.showOnFilter,
 		position: definition.position,
 		archived: definition.archivedAt !== null,
 		options: definition.options
